@@ -4,11 +4,11 @@ var C = Number(prompt("Enter the lengs of third side :"));
 var AB = A + B;
 var AC = A + C;
 var BC = B + C;
-if ((A <= 0) || (B <= 0) || (C <= 0)) {
-console.log("Incorrect data!");
+if ((A <= 0) || (B <= 0) || (C <= 0) || isNaN(A) || isNaN(B) || isNaN(C)) {
+	console.log("Incorrect data!");
 }
 else {
- 	if ((AB > C) && (AC > B) && (BC > A)) {
+	if ((AB > C) && (AC > B) && (BC > A)) {
 		var type;
 		var AA = A*A;
 		var BB = B*B;
@@ -39,4 +39,6 @@ else {
     else {
 	    console.log("The triangle can not be formed !");
     }
+
+ 	
 }
