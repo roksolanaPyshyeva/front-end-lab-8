@@ -1,0 +1,23 @@
+/* Your styles goes here */
+li {
+  list-style: none;
+}
+i {
+  color: #fbd700;
+}
+.file i {
+  color: #c7c7c7;
+}
+h4 {
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  margin: 5px;
+  font-weight: normal;
+}
+h4:hover {
+  background-color: #e7e7e7;
+}
+.empty {
+	font-style : italic;
+}
