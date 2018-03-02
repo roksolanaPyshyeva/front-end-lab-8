@@ -1,0 +1,122 @@
+/* Your styles goes here */
+h1 {
+    color: #A19E86;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+body{
+  background-color: #1C1C1F;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.flex-box {
+    width: 1500px;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.tank-img {
+    display: block;
+    max-width: 240px;
+    max-height: 240px;
+    width: auto;
+    height: auto;
+}
+.box-item:hover{
+  background-color: #2C2C2C;
+}
+
+.level{
+  color : #A19E86;
+  font-weight: bolder;
+  margin : 0 5px 0 5px;
+  
+}
+.name{
+	  color : #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis; 
+}
+
+.model{
+  display: flex;
+  margin-top: 3px;
+  justify-content: center;
+  margin-bottom: 20px;
+  width : 200px;
+	
+}
+
+.preview {
+    margin-top: 25px;
+    color: #9da285;
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.tank-details {
+    display: flex;
+    margin-left: 15px;
+    margin-right: 0;
+}
+
+.tank-details h1 {
+    margin-left: 0;
+}
+
+.back-link, .preview-table {
+    color: #9da285;
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.preview-table {
+    margin-top: 80px;
+    margin-bottom: 15px;
+}
+
+.detail-flag {
+    margin-right: 15px;
+}
+
+table {
+    border: 1px solid #9da285;
+    margin: 0 -50px 24px 0;
+    text-align: left;
+    border-collapse: collapse;
+    color: #d3d6b4;
+    
+}
+
+tr {
+    border: 1px solid #9da285;
+}
+
+th {
+    padding: 9px 24px;
+    border-right:1px solid #9da285;
+    text-align: left;
+    width: 300px;
+}
+
+th:nth-child(2n+1) {
+    width: 600px;
+}
+
+.first-div, .second-div {
+    float: left;
+}
+
+
+.tank-model{
+	float: left;
+}
