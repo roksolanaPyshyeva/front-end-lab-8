@@ -1,0 +1,348 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  font-family: "Open Sans", sans-serif;
+}
+.main {
+	display: grid;
+	grid-template-areas:
+		"header"
+		"section1"
+		"section2"
+		"section3"
+		"section4"
+		"footer";
+}
+header {
+	grid-area: header;
+	display: grid;
+	grid-template-columns : 1fr 1fr;
+	grid-auto-rows: minmax(16vw, auto);
+	background-image:url(../img/apples.jpg);
+    background-attachment:local;
+    background-position:top;
+    background-repeat:no-repeat;
+    background-size:cover;
+    color: #fff;
+}
+.logo{
+	grid-column: 1;
+  	grid-row: 1;
+	margin: 5% 0 0 30%;
+	font-size: 1vw;
+}
+header nav{
+	grid-column: 2;
+  	grid-row: 1;
+	margin: 5% 0 0 10%;
+	font-size: 1vw;
+}
+nav a{
+	color: #FFF;
+    text-decoration: none;
+    margin: 0 0 0 10%;
+    position: relative;
+}
+.nav-header a:hover::before {
+	content: "_______";
+	color: #23fff7;
+	padding-top: 2%;
+	position: absolute;
+	transform: scaleX(1.2);
+
+}
+.nav-header a:last-child:hover::before{
+	content: "___________";
+	color: #23fff7;
+	padding-top: 2%;
+	position: absolute;
+	transform: scaleX(1.2);
+
+}
+.mainHeading{
+	grid-column: 1/ span 2;
+  	grid-row: 2;
+  	text-align: center;
+}
+.mainHeading p:first-child{
+    text-transform: uppercase;
+    font-size: 3.4vw;
+    letter-spacing: 1vw;
+}
+.mainHeading p:first-child::after{
+    content: "TM";
+    vertical-align: 90%;
+    font-size: 1.2vw;
+    letter-spacing: normal;
+}
+.mainHeading p span{
+    font-size: 6vw;
+}
+.btn{
+    grid-column: 1/ span 2;
+  	grid-row: 3;
+  	text-align: center;
+}
+.btn button{
+	background-color:rgba(0,0,0,0.6);
+    color: #FFF;
+    border: 1.5px solid #FFF;
+    font-size: 1vw;
+    padding: 1% 5% 1% 5%;
+    margin-top : 6%;
+}
+.section1{
+	grid-area: section1;
+	display: grid;
+	grid-template-columns : 1fr 1fr;
+	grid-auto-rows: minmax(18vw, auto);
+}
+.one-lorem{
+  grid-column : 1;
+  grid-row :1;
+  padding: 15% 0% 0 25%;
+  font-size: 1.4vw;
+}
+.two-lorem{
+  grid-column : 2;
+  grid-row :1;
+  padding: 15% 25% 0 0;
+  font-size: 0.9vw;
+}
+.section2{
+	grid-area: section2;
+	display: grid;
+	grid-template-columns : 1fr 1fr 1fr;
+	grid-auto-rows: minmax(19vw, auto);
+	background-color: #F3F3F3;
+	grid-column-gap: 2vw;
+	grid-row-gap: 2vw;
+	padding: 0 12% 0 12%;
+}
+.section2 div:nth-child(3n-4) p:last-child{
+	position: absolute;
+	font-size: 1.1vw;
+	margin: 0 0 5% 5%;
+}
+.section2 div:nth-child(3n-4) p:first-child{
+	text-align: right;
+  	border: 0.1vw solid #fff;
+  	background-color:rgba(0,0,0,0.6);
+  	font-size: 1.1vw;
+  	margin: 3% 3% 24% 86%;
+  	padding: 1%;
+}
+.item34 p:first-child {
+	text-align: right;
+  	border: 0.1vw solid #fff;
+  	background-color:rgba(0,0,0,0.6);
+  	font-size: 1.1vw;
+  	margin: 5% 5% 51% 75%;
+  	padding: 2%;
+}
+.item34 p:last-child {
+	position: absolute;
+  	font-size: 1.1vw;
+  	margin: 0 0 8% 7%;
+  	padding: 2%;
+}
+.item1{
+	grid-column : 1/span 3;
+  	grid-row :1;
+  	text-align: center;
+  	font-size: 1.4vw;
+  	padding-top: 15%;
+  }
+.item2{
+	grid-column : 1/span 2;
+  	grid-row :2;
+  	background-image: url(../img/sample.jpg) ;
+  	background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border: 1px solid #fff;
+    color: #fff;
+    position: relative;
+}
+.item34{
+	background-image: url(../img/sample2.jpg) ;
+  	background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border: 1px solid #fff;
+    color: #fff;
+    position: relative;
+}
+.item3{
+	grid-column : 3;
+  	grid-row :2;
+}
+.item4{
+	grid-column : 1;
+  	grid-row :3;
+}
+.item5{
+	grid-column : 2/ 4;
+  	grid-row :3;
+  	background-image: url(../img/sample3.jpg) ;
+  	background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border: 1px solid #fff;
+    color: #fff;
+    position: relative;
+}
+.gradient::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(255, 255, 255, 0.01)), to(rgba(0, 0, 0, 0.5)));
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 60%, rgba(0, 0, 0, 0.5) 100%); 
+  }
+.section3{
+	grid-area: section3;
+	background-color: #F3F3F3;
+	padding: 8% 12% 12% 12%;
+}
+.div-s3{
+	background-color: #fff;
+	display: grid;
+	grid-template-columns : 40% 60%;
+	grid-auto-rows: minmax(13vw, auto);
+}
+.newsletter{
+	padding-left: 24%;
+	padding-top: 18%;
+	font-size: 1.6vw;
+}
+.subscribe{
+	display:flex;
+	padding : 10% 0 10% 1vw;
+}
+
+::placeholder{
+	color: #343638;
+	}
+#contact-email{
+	background-color: #F0F0F0;
+	color: #343638;
+	border: 1px solid #343638;
+	padding: 3% 30% 3% 3%;
+	margin-right: 0;
+	font-weight: bold;
+	font-size: 1vw;
+
+}
+#subscribe{
+	background-color:  #343638;
+	padding:3% 9% 3% 9%;
+	margin-left: 0;
+	color: #F0F0F0;
+	border: none;
+	font-size: 1vw;
+}
+.section4{
+	grid-area: section4;
+	background-color: #fff;
+	padding: 8% 12% 0 12%;
+}
+.div-s4{
+	border-bottom: 1.5px solid #E8E8E8;
+	display: grid;
+	grid-template-columns : 1fr 1fr 1fr 1.15fr;
+	grid-auto-rows: minmax(18vw, auto);
+	grid-column-gap: 3vw;
+	grid-row-gap: 3vw;
+	padding-bottom: 4%;
+}
+.section4 h1{
+	font-size: 1.4vw;
+	padding-bottom: 6%;
+}
+.section4 p{
+	color: #9E9E9E;
+	font-size: 1vw;
+}
+.black-white{
+	padding: 0 13% 0 0;
+
+}
+.black-white p{
+	line-height: 162%;
+}
+.contact h1{
+	padding-bottom: 3%;
+}
+.contact p{
+	line-height: 230%;
+}
+.tweet{
+	padding: 0 9% 0 0;
+}
+.tweet p{
+	line-height: 155%;
+}
+.tweet p:last-child {
+	color: #E8E8E8;
+	padding-top: 4.5%;
+}
+.news{
+	font-size: 1.1vw;
+}
+.news p{
+	line-height: 160%;
+}
+#contact-email-small{
+	background-color: #F3F3F3;
+	border: 1px solid #343638;
+	padding: 5% 0 5% 5%;
+	margin-right: 0;
+	font-size: 0.9vw;
+	font-style: italic;
+}
+.email-subscribe{
+	display: flex;
+	padding-top: 10%;
+}
+#contact-email-small::placeholder{
+	color: #9E9E9E;
+}
+#subscribe-small{
+	background-color:  #343638;
+	padding:5% 5% 5% 5%;
+	
+	color: #F0F0F0;
+	border: none;
+	font-size: 0.9vw;
+}
+
+footer {
+	grid-area: footer;
+	display: grid;
+	grid-template-columns : 1fr 1fr ;
+	grid-auto-rows: minmax(4.5vw, auto);
+
+}
+.div-footer{
+	color: #9E9E9E;
+	font-size: 0.95vw;
+	padding: 3% 0 0 24%;
+}
+.nav-footer{
+	padding: 3% 0 0 17%;
+}
+.nav-footer a{
+	color: #000;
+	font-size: 0.95vw;
+	font-weight: bold;
+
+}
+

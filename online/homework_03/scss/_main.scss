@@ -1,0 +1,158 @@
+$contentBackground : null !default;
+$contentcolor : null !default;
+$bodyBackground : null !default;
+$deffoltmargin : null !default;
+$pColor : null !default;
+//brief
+$briefWidth : null !default;
+$briefPadding : null !default;
+$briefMargin : null !default;
+$briefFloat : null !default;
+$briefColor : null !default;
+$aColor : null !default;
+$tablePadding : null !default;
+$thColor : null !default;
+$tdColor : null !default;
+$tdBackground :  null !default;
+$last-formPColor : null !default;
+
+body{
+	background-color: $bodyBackground;
+}
+#content {
+  width: 960px;
+  margin: 0 auto;
+  background: $contentBackground;
+}
+@mixin heading1 { 
+	text-align: center;
+	color: $contentcolor;
+	margin: $deffoltmargin;
+	@if $contentBackground == #fff {
+   		text-transform: none;
+	}
+	@else {
+	   text-transform: uppercase;
+	}
+
+}
+@mixin heading2{
+	color: $contentcolor;
+	margin : $deffoltmargin;
+}
+@mixin image{
+	border: 2px solid $contentcolor;
+	padding: 1.5px 1.5px 1.5px 1.5px;
+}
+@mixin table{
+	text-align: left;
+	padding: $tablePadding;
+
+}
+#content {
+	padding-top: 5px;
+	h2{
+		@include heading2;
+	}
+	h1{
+		@include heading1;
+
+	}
+	p{
+		margin : $deffoltmargin;
+		color: $pColor;
+		img{
+			@include image;
+			margin: 5px 20px 5px 0px;
+			float: left;
+		}
+	}
+	a{
+		margin : $deffoltmargin;
+		color: $aColor;
+	}
+	table{
+		margin: $deffoltmargin;
+		border-collapse: collapse;
+		caption{
+			text-align: right;
+		}
+		th{
+			@include table;
+			background: $thColor;
+			border-right: 1px solid #fff;
+			text-transform: uppercase;
+			font-weight: normal;
+			&:last-of-type {
+				border-right: none;
+			}
+		}
+		td{
+			@include table;
+			background: $tdBackground;
+			border-bottom: 1px solid $tdColor;
+			color: $pColor;
+		}
+	}
+} 
+.img-left{
+	@include image;
+	margin: 5px 20px 5px 20px;
+	float: left;
+}
+.img-right{
+	@include image;
+	margin: 5px 20px 5px 20px;
+	float: right;
+}
+.brief{
+	background-color: $briefColor; 
+	width : $briefWidth;
+	padding: $briefPadding;
+	margin: $briefMargin;
+	float: $briefFloat; 
+}
+#last-form {
+	p{
+		margin: 10px 5px 5px 20px;
+		color: $last-formPColor;
+	}
+	input{
+		margin: 0 5px 5px 20px;
+		padding: 4px 0 4px 4px;
+		color: #808080;
+		border: 1px solid $thColor;
+	}
+	textarea{
+		margin: 5px 5px 5px 20px;
+		color: #808080;
+		border: 1px solid $thColor;
+	}
+	#send{
+		background: $contentBackground;
+		color: $aColor;
+		border: 1px solid $aColor;
+		width: 210px;
+		height: 40px;
+		margin-bottom: 30px;
+		margin-top: 10px;
+		font-weight: bold;
+	}
+
+}
+#contact_name, #contact_surname{
+	width: 455px;
+}
+#display{
+	display: flex;
+}
+#surname{
+	margin: 0 0 0 -18px;
+}
+#contact_email, #contact_raiting{
+	width: 922px;
+}
+#contact_message{
+	width: 922px;
+	height: 180px
+}

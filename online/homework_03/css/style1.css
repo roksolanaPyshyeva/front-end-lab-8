@@ -1,0 +1,106 @@
+body {
+  background-color: #dcbb9a; }
+
+#content {
+  width: 960px;
+  margin: 0 auto;
+  background: #fff; }
+
+#content {
+  padding-top: 5px; }
+  #content h2 {
+    color: #893c00;
+    margin: 20px 20px 18px 20px; }
+  #content h1 {
+    text-align: center;
+    color: #893c00;
+    margin: 20px 20px 18px 20px;
+    text-transform: none; }
+  #content p {
+    margin: 20px 20px 18px 20px;
+    color: #000; }
+    #content p img {
+      border: 2px solid #893c00;
+      padding: 1.5px 1.5px 1.5px 1.5px;
+      margin: 5px 20px 5px 0px;
+      float: left; }
+  #content a {
+    margin: 20px 20px 18px 20px;
+    color: #3d70a1; }
+  #content table {
+    margin: 20px 20px 18px 20px;
+    border-collapse: collapse; }
+    #content table caption {
+      text-align: right; }
+    #content table th {
+      text-align: left;
+      padding: 10px 0 10px 15px;
+      background: #e0e0e0;
+      border-right: 1px solid #fff;
+      text-transform: uppercase;
+      font-weight: normal; }
+      #content table th:last-of-type {
+        border-right: none; }
+    #content table td {
+      text-align: left;
+      padding: 10px 0 10px 15px;
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      color: #000; }
+
+.img-left {
+  border: 2px solid #893c00;
+  padding: 1.5px 1.5px 1.5px 1.5px;
+  margin: 5px 20px 5px 20px;
+  float: left; }
+
+.img-right {
+  border: 2px solid #893c00;
+  padding: 1.5px 1.5px 1.5px 1.5px;
+  margin: 5px 20px 5px 20px;
+  float: right; }
+
+.brief {
+  background-color: #fadcba;
+  width: 350px;
+  padding: 20px 20px 20px 20px;
+  margin: 5px 20px 5px 20px;
+  float: left; }
+
+#last-form p {
+  margin: 10px 5px 5px 20px;
+  color: #808080; }
+#last-form input {
+  margin: 0 5px 5px 20px;
+  padding: 4px 0 4px 4px;
+  color: #808080;
+  border: 1px solid #e0e0e0; }
+#last-form textarea {
+  margin: 5px 5px 5px 20px;
+  color: #808080;
+  border: 1px solid #e0e0e0; }
+#last-form #send {
+  background: #fff;
+  color: #3d70a1;
+  border: 1px solid #3d70a1;
+  width: 210px;
+  height: 40px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-weight: bold; }
+
+#contact_name, #contact_surname {
+  width: 455px; }
+
+#display {
+  display: flex; }
+
+#surname {
+  margin: 0 0 0 -18px; }
+
+#contact_email, #contact_raiting {
+  width: 922px; }
+
+#contact_message {
+  width: 922px;
+  height: 180px; }
