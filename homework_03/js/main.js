@@ -22,7 +22,7 @@ function Company({name,owner,maxCompanySize}){
 	this.getLowestSalaryEmployee = function(){
 		let id = 0;
 		for(let i=1;i<_employees.length;i++){
-			if(_employees[i].salary< _employees[id].salary){
+			if(_employees[i].getSalary()< _employees[id].getSalary()){
 				id = i;
 			}
 		}
@@ -37,7 +37,7 @@ function Company({name,owner,maxCompanySize}){
 	this.getAvarageSalary = function(){
 		let salary = 0;
 		for(let i = 0;i < _employees.length; i++){
-			salary += _employees[i].salary;
+			salary += _employees[i].getSalary();
 		}
 		return (salary/_employees.length);
 	}
@@ -46,9 +46,10 @@ function Company({name,owner,maxCompanySize}){
 	}
 	this.getFormattedListOfEmployees = function(){
 		let formatedList = '';
-		for(let i = 0; i< _employees.lengh; i++){
-			formatedList += `${_employees[i].name} -  works in ${_employees[i].companyName.name} ${_employees[i].getTimeInCompany()} seconds\n`;
+		for(let i = 0; i< _employees.length; i++){
+			formatedList += `${_employees[i].name} -  works in ${_employees[i].getCompanyName()} ${_employees[i].getTimeInCompany()} seconds\n`;
 		}
+		return formatedList;
 	}
 	this.getAvarageAge = function(){
 		let age = 0;
@@ -67,11 +68,14 @@ function Employee({name, primarySkill, age, salary}){
 	this.name = name;
 	this.primarySkill = primarySkill;
 	this.age = age;
-	this.salary = salary;
+	let _salary = salary;
 	let _history = '';
 	let _totalWorkTime = 0;
 	let _currentCompanyName = '';
 	let _startWorkTime = 0;
+	this.getCompanyName = function(){
+		return _currentCompanyName;
+	}
 	function _checkNewSalary(oldSalary,newSalary){
 		if(oldSalary < newSalary){
 			return true;
@@ -80,14 +84,14 @@ function Employee({name, primarySkill, age, salary}){
 		}
 	}
 	this.getSalary = function(){
-		return this.salary;
+		return _salary;
 	}
 	this.setSalary = function(newSalary){
-		if(_checkNewSalary(this.salary, newSalary)){
-			this.salary = newSalary;
-			_history += `change salary from ${this.salary} to ${newSalary}\n`;
+		if(_checkNewSalary(_salary, newSalary)){
+			_salary = newSalary;
+			_history += `change salary from ${_salary} to ${newSalary}\n`;
 		}else{
-			_history += `try to change salary from ${this.salary} to ${newSalary}\n`;
+			_history += `try to change salary from ${_salary} to ${newSalary}\n`;
 		}
 	}
 	this.getWorkTimeInSeconds = function(){
@@ -149,4 +153,5 @@ setTimeout(() => {
 vova.setSalary(900);
 vova.setSalary(2200);
 console.log(vova.getHistory());
-
+console.log(epam.getEmployees());
+console.log(epam.getFormattedListOfEmployees());
