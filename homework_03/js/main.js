@@ -81,11 +81,8 @@ function Employee({name, primarySkill, age, salary}){
 		return _currentCompanyName;
 	}
 	function _checkNewSalary(oldSalary,newSalary){
-		if(oldSalary < newSalary){
-			return true;
-		}else{
-			return false;
-		}
+		oldSalary < newSalary ? true : false;
+		
 	}
 	this.getSalary = function(){
 		return _salary;
