@@ -29,6 +29,10 @@ function Company({name,owner,maxCompanySize}){
 		return id;
 	}
 	this.removeEmployee = function(id){
+		if(id>(this.maxCount - 1)|| id< 0|| (!(Number.isInteger(id)))){
+			console.error("There is no employee with such index");
+            return;
+		}
 		_employees[id].fire();
 		let date = Date(Date.now());
 		_logs += `${_employees[id].name} ends working at ${this.name} in ${date}\n`;
@@ -87,11 +91,16 @@ function Employee({name, primarySkill, age, salary}){
 		return _salary;
 	}
 	this.setSalary = function(newSalary){
-		if(_checkNewSalary(_salary, newSalary)){
-			_salary = newSalary;
-			_history += `change salary from ${_salary} to ${newSalary}\n`;
+		if(typeof newSalary === 'number' && isFinite(newSalary)){
+			if(_checkNewSalary(_salary, newSalary)){
+				_salary = newSalary;
+				_history += `change salary from ${_salary} to ${newSalary}\n`;
+			}else{
+				_history += `try to change salary from ${_salary} to ${newSalary}\n`;
+			}
 		}else{
-			_history += `try to change salary from ${_salary} to ${newSalary}\n`;
+			console.error("You've tried to set wrong value!");
+            return;
 		}
 	}
 	this.getWorkTimeInSeconds = function(){
