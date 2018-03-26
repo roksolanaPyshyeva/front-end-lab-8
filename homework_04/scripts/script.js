@@ -142,29 +142,29 @@ var beast = new Monster({name: 'King Krush', attack: 8, hitpoints: 80});
 hunter.fight(hunter);
 beast.fight(beast);
 hunter.fight(beast);
-console.log(beast.getHitpoints()); // -> 70
+console.log(beast.getHitpoints()); 
 beast.enrage();
 hunter.fight(beast);
-console.log(beast.getHitpoints()); // -> 60
+console.log(beast.getHitpoints()); 
 beast.fight(hunter);
-console.log(hunter.getHitpoints()); // -> 44
+console.log(hunter.getHitpoints()); 
 hunter.defence();
 beast.fight(hunter);
-console.log(hunter.getHitpoints()); //44
-console.log(hunter.getTotalHitpoints()); // 61
+console.log(hunter.getHitpoints()); 
+console.log(hunter.getTotalHitpoints()); 
 beast.fury();
-console.log(beast.getHitpoints()); //55
-console.log(beast.getTotalHitpoints()); //75
-console.log(beast.getAttack()); // 10
-hunter.fight(beast); //45
-hunter.fight(beast); //35
-hunter.fight(beast); //25
-hunter.fight(beast); //15
-hunter.fight(beast); //5
+console.log(beast.getHitpoints()); 
+console.log(beast.getTotalHitpoints()); 
+console.log(beast.getAttack()); 
+hunter.fight(beast); 
 hunter.fight(beast);
-console.log(beast.isAlive()); // -> false
+hunter.fight(beast); 
+hunter.fight(beast); 
 hunter.fight(beast);
-console.log(hunter.getAttack()); // -> 11
-console.log(hunter.getHitpoints()); // -> 44
+hunter.fight(beast);
+console.log(beast.isAlive());
+hunter.fight(beast);
+console.log(hunter.getAttack()); 
+console.log(hunter.getHitpoints());
 hunter.heal();
-console.log(hunter.getHitpoints()); // -> 49
+console.log(hunter.getHitpoints());
