@@ -16,11 +16,11 @@ var options = { width: 150 };
 var configs = assign({}, defaults, options); 
 
 // Task 2
-function Player({name,attack,hitpoints}){
-	this.name =name;
-	this._attack = attack;
-	this._totalHitpoints = hitpoints;
-	this._currentHitpoints = hitpoints;
+function Player(obj){
+	this.name =obj.name;
+	this._attack = obj.attack;
+	this._totalHitpoints = obj.hitpoints;
+	this._currentHitpoints = obj.hitpoints;
 }
 Player.prototype.getHitpoints = function(){
 	return this._currentHitpoints;
