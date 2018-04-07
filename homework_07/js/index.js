@@ -24,6 +24,7 @@ $(document).ready(() => {
 		this.name = color;
 		this.turn = turn;
 		this.movesCoordinates = [];
+		this.winRow = [];
 	}
 
 	let whitePlayer = new Player('white', true);
@@ -38,13 +39,15 @@ $(document).ready(() => {
 			changeTurnWhiteToBlack();
 			let $circle = $('<div class="white-circle"></div>')
 			$cellDiv.append($circle);
+			whitePlayer.winRow = [];
 			whitePlayer.movesCoordinates.push([parseInt($cellDiv.attr('col')),parseInt($cellDiv.attr('row'))]);
 			if((whitePlayer.movesCoordinates.length >= 4) && isWinner(parseInt($cellDiv.attr('col')),parseInt($cellDiv.attr('row')),whitePlayer)){
+				console.log(whitePlayer.winRow);
+				highliteRow(whitePlayer);
 				$('.winner').prepend('<p></p>');
 				$('.winner p').text(`Winner is ${whitePlayer.name} color!`);
 				$('.winner').show().fadeIn('slow');
 			};
-
 		}else{
 			$cellDiv = $(e.target).closest('.grid-item');
 			if(chackPlace(parseInt($cellDiv.attr('col')),parseInt($cellDiv.attr('row')))){
@@ -53,14 +56,32 @@ $(document).ready(() => {
 			changeTurnBlackToWhite();
 			let $circle = $('<div class="black-circle"></div>')
 			$cellDiv.append($circle);
+			blackPlayer.winRow = [];
 			blackPlayer.movesCoordinates.push([parseInt($cellDiv.attr('col')),parseInt($cellDiv.attr('row'))]);
 			if((blackPlayer.movesCoordinates.length >= 4) && isWinner(parseInt($cellDiv.attr('col')),parseInt($cellDiv.attr('row')),blackPlayer)){
+				highliteRow(blackPlayer);
+				console.log(whitePlayer.winRow);
 				$('.winner').prepend('<p></p>');
 				$('.winner p').text(`Winner is ${blackPlayer.name} color!`);
 				$('.winner').show().fadeIn('slow');
 			};
 		}
 	});
+	function highliteRow(player){
+		for(let i=0; i< player.winRow.length; i++){
+			if(player.name === 'white'){
+				if(Array.isArray(player.winRow[i])){
+					$(`div[col=${player.winRow[i][0]}]`).filter(`div[row=${player.winRow[i][1]}]`).attr('winner', 'white');
+					$(`[winner=white] .white-circle`).css({"background-color": "rgb(206, 12, 12)"});
+				}
+			}else{
+				if(Array.isArray(player.winRow[i])){
+					$(`div[col=${player.winRow[i][0]}]`).filter(`div[row=${player.winRow[i][1]}]`).attr('winner', 'black');
+					$(`[winner=black] .black-circle`).css({"background-color": "rgb(206, 12, 12)"});
+				}
+			}
+		}
+	}
 	function chackPlace(x,y){
 		for(let i =0; i<whitePlayer.movesCoordinates.length; i ++){
 			if((parseInt(whitePlayer.movesCoordinates[i][0]) === x) &&(parseInt(whitePlayer.movesCoordinates[i][1]) === y ) ){
@@ -113,46 +134,74 @@ $(document).ready(() => {
 		for(let i = 0; i<player.movesCoordinates.length; i++){
 			if(parseInt(player.movesCoordinates[i][1]) === y){
 				counter++;
+				player.winRow[i] = player.movesCoordinates[i];
 			}
 		}
-		return counter>=4 ? true : false;
+		if(counter>=4){
+			return true;
+		}else{
+			whitePlayer.winRow = [];
+			return false;
+		}
 	}
 	function checkHorizontally(x,player){
 		let counter = 0;
 		for(let i = 0; i<player.movesCoordinates.length; i++){
 			if(parseInt(player.movesCoordinates[i][0]) === x){
 				counter++;
+				player.winRow[i] = player.movesCoordinates[i];
 			}
 		}
-		return counter>=4 ? true : false;
+		if(counter>=4){
+			return true;
+		}else{
+			whitePlayer.winRow = [];
+			return false;
+		}
 	}
 	function checkDigonalLeftToRight(player){
 		let counter = 1;
 		player.movesCoordinates.sort((a,b) =>{return a[0] - b[0]});
 		let x = parseInt(player.movesCoordinates[0][0]);
 		let y = parseInt(player.movesCoordinates[0][1]);
+		player.winRow[0] = [player.movesCoordinates[0][0],player.movesCoordinates[0][1]];
 		for(let i = 1; i<player.movesCoordinates.length; i++){
 			if((parseInt(player.movesCoordinates[i][0] ) === (x+1)) && (parseInt(player.movesCoordinates[i][1] )=== (y+1))){
 				counter++;
+				player.winRow[i] = player.movesCoordinates[i];
 				x = parseInt(player.movesCoordinates[i][0]);
 				y = parseInt(player.movesCoordinates[i][1]);
+
 			}
 		}
-		return counter>=4 ? true : false;
+		if(counter>=4){
+			return true;
+		}else{
+			whitePlayer.winRow = [];
+			return false;
+		}
 	}
 	function checkDigonalRightToLeft(player){
 		let counter = 1;
 		player.movesCoordinates.sort((a,b) =>{return a[0] - b[0]});
 		let x = parseInt(player.movesCoordinates[0][0]);
 		let y = parseInt(player.movesCoordinates[0][1]);
+		player.winRow[0] = [player.movesCoordinates[0][0],player.movesCoordinates[0][1]];
 		for(let i = 1; i<player.movesCoordinates.length; i++){
 			if((parseInt(player.movesCoordinates[i][0] ) === (x+1)) && (parseInt(player.movesCoordinates[i][1] )=== (y-1))){
 				counter++;
+				player.winRow[i] = player.movesCoordinates[i];
 				x = parseInt(player.movesCoordinates[i][0]);
 				y = parseInt(player.movesCoordinates[i][1]);
+
 			}
 		}
-		return counter>=4 ? true : false;
+		if(counter>=4){
+			return true;
+		}else{
+			whitePlayer.winRow = [];
+			return false;
+		}
 	}
 	$('#btn').click(() => {
 	        location.reload();
