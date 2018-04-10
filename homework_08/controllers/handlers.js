@@ -18,19 +18,23 @@ exports.post = (req,res) =>{
 	if(!req.body.name || !req.body.band || !req.body.instrument){
 		res.status(400).send('The information is incorrect !');
 	}
-	let rockstar = {
-		"id" : data.length + 1,
-		"name": req.body.name,
-		"band" : req.body.band,
-		"instrument" : req.body.instrument
-	};
-	const rocks = stars.find(c => {return c.name==req.body.name});
-	if(rocks){
-		res.status(409).send('{"message": "Musician already exist."}');
-	}
 
-	data.push(rockstar);
-	res.status(201).send(data);
+	let  star = data.find((element) =>{
+		return element.id === parseInt(req.params.id);
+	});
+	if(star){
+		res.status(409).send('{"message": "Musician already exist."}');
+		return;
+	}else{
+		let rockstar = {
+			"id" : data.length + 1,
+			"name": req.body.name,
+			"band" : req.body.band,
+			"instrument" : req.body.instrument
+		};
+		data.push(rockstar);
+		res.status(201).send(data);
+	}
 
 };
 exports.put = (req,res) => {
@@ -47,14 +51,14 @@ exports.put = (req,res) => {
 };
 
 exports.delete = (req,res) => {
-	let  rockstar = data.find((element) =>{
+	const  rockstar = data.find((element) =>{
 		return element.id === parseInt(req.params.id);
 	});
 	if(!rockstar){
 		res.status(404).send('The rockstar with given id was not found !');
 	}
-	let index = data.indexOf(rockstar);
+	const index = data.indexOf(rockstar);
 	data.splice(index,1);
-	res.status(200).send("Musician has been successfully removed");
+	res.status(200).send({"message": "Musician has been successfully removed."});
 };
 

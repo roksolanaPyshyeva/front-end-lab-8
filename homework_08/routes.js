@@ -7,9 +7,9 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 router.get('/rockstars', handlers.get);
-router.get('/rockstars/:id', handlers.getById);
-router.post('/rockstars', handlers.post);
-router.put('/rockstars/:id', handlers.put);
-router.delete('/rockstars/:id', handlers.delete);
+router.get('/rockstar/:id', handlers.getById);
+router.post('/rockstar', handlers.post);
+router.put('/rockstar/:id', handlers.put);
+router.delete('/rockstar/:id', handlers.delete);
 
 module.exports = router;
