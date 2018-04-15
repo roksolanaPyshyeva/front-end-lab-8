@@ -61,24 +61,3 @@ console.log(numberInput.valid) //---> true, all validators pass
 numberInput.setValue(1111111111111111111111111111);
 AddMaxLengthValidation(numberInput, 10);
 console.log(numberInput.valid) //---> false, because of max length validator
-
-
-//  Then you can create add validation decorators and add functionality to numberInput
-//  AddRequiredValidation Decorator that add required validation
-//  AddMaxLengthValidation Decorator that add max length validation
-//  AddNumberValidation Decorator for only number values validation
-
-
-// The desired behaviour would be
-// console.log(numberInput.valid) ---> false, because of required validator
-// numberInput.setValue("1");
-// console.log(numberInput.valid) ---> false, because of number validator
-// numberInput.setValue(1);
-// console.log(numberInput.valid) ---> true, all validators pass
-// numberInput.setValue(1111111111111111111111111111);
-// console.log(numberInput.valid) ---> false, because of max length validator
-
-// Notice after applying some validator to an object, it gets additional "valid" property;
-
-
-
