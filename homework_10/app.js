@@ -30,7 +30,7 @@ function AddRequiredValidation (object){
 }
 function AddMaxLengthValidation (object, maxLength){
 	if(object.value.toString().length > maxLength){
-		console.log(`The input value is longer then ${maxLength}`);
+		console.log(`The input value is longer then ${maxLength}!`);
 		object.valid = false;
 	}else{
 		console.log("Passed length validation!");
@@ -39,7 +39,7 @@ function AddMaxLengthValidation (object, maxLength){
 }
 function AddNumberValidation (object){
 	if(typeof object.value !== 'number'){
-		console.log("The input value is not a number");
+		console.log("The input value is not a number!");
 		object.valid = false;
 	}else{
 		console.log("Passed type validation!");
@@ -49,15 +49,15 @@ function AddNumberValidation (object){
 
 let numberInput = new NumberInput("Type numbers...");
 AddRequiredValidation(numberInput);
-console.log(numberInput.valid) //---> false, because of required validator
+console.log(numberInput.valid); //---> false, because of required validator
 numberInput.setValue("1");
 AddNumberValidation(numberInput);
-console.log(numberInput.valid)// ---> false, because of number validator
+console.log(numberInput.valid);// ---> false, because of number validator
 numberInput.setValue(1);
 AddRequiredValidation(numberInput);
 AddMaxLengthValidation(numberInput, 10);
 AddNumberValidation(numberInput);
-console.log(numberInput.valid) //---> true, all validators pass
+console.log(numberInput.valid); //---> true, all validators pass
 numberInput.setValue(1111111111111111111111111111);
 AddMaxLengthValidation(numberInput, 10);
-console.log(numberInput.valid) //---> false, because of max length validator
+console.log(numberInput.valid); //---> false, because of max length validator
