@@ -67,26 +67,24 @@ function AddNumberValidation(object) {
         }
     }
 }
+function validation(object, maxLength){
+	AddRequiredValidation(object);
+	AddMaxLengthValidation(object, maxLength);
+	AddNumberValidation(object);
+}
 
 let numberInput = new NumberInput("Type numbers...");
+AddRequiredValidation(numberInput);
 console.log(numberInput.valid); //---> false, because of required validator
 
 numberInput.setValue("1");
-AddNumberValidation(numberInput);
+validation(numberInput,10);
 console.log(numberInput.valid); // ---> false, because of number validator
 
 numberInput.setValue(1);
-AddRequiredValidation(numberInput);
-AddMaxLengthValidation(numberInput, 10);
-AddNumberValidation(numberInput);
+validation(numberInput,10);
 console.log(numberInput.valid); //---> true, all validators pass
 
 numberInput.setValue(1111111111111111111111111111);
-AddMaxLengthValidation(numberInput, 10);
-console.log(numberInput.valid); //---> false, because of max length validator
-
-numberInput.setValue(3001);
-AddRequiredValidation(numberInput);
-AddMaxLengthValidation(numberInput, 3);
-AddNumberValidation(numberInput);
+validation(numberInput,10);
 console.log(numberInput.valid); //---> false, because of max length validator
