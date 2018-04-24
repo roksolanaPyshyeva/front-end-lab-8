@@ -1,72 +1,70 @@
 const model = {
     currentPerson: {},
-    allPersons: [
-        {
-            name: 'Lily Butler',
-            score: 2,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/1.jpg'
-        }, {
-            name: 'Waller Perry',
-            score: 4,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/women/1.jpg'
-        }, {
-            name: 'Tammi Donovan',
-            score: 5,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/2.jpg'
-        }, {
-            name: 'Doreen Flowers',
-            score: 4,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/3.jpg'
-        }, {
-            name: 'Price Pace',
-            score: 2,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/4.jpg'
-        }, {
-            name: 'Larson Maldonado',
-            score: 1,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/5.jpg'
-        }, {
-            name: 'Berg Bolton',
-            score: 5,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/women/2.jpg'
-        }, {
-            name: 'Mack Lott',
-            score: 3,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/6.jpg'
-        }, {
-            name: 'Rosanna Mcleod',
-            score: 4,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/7.jpg'
-        }, {
-            name: 'Rosalie Rice',
-            score: 1,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/8.jpg'
-        }, {
-            name: 'Virginia Buchanan',
-            score: 2,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/women/3.jpg'
-        }, {
-            name: 'Lorna Stein',
-            score: 4,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/9.jpg'
-        }, {
-            name: 'Rosalie Steele',
-            score: 3,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/women/4.jpg'
-        }, {
-            name: 'Wilcox Boyd',
-            score: 5,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/10.jpg'
-        }, {
-            name: 'Ollie Rice',
-            score: 5,
-            photoUrl: 'http://api.randomuser.me/portraits/thumb/men/11.jpg'
-        }
-    ]
+    allPersons: [{
+        name: 'Lily Butler',
+        score: 2,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/1.jpg'
+    }, {
+        name: 'Waller Perry',
+        score: 4,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/women/1.jpg'
+    }, {
+        name: 'Tammi Donovan',
+        score: 5,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/2.jpg'
+    }, {
+        name: 'Doreen Flowers',
+        score: 4,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/3.jpg'
+    }, {
+        name: 'Price Pace',
+        score: 2,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/4.jpg'
+    }, {
+        name: 'Larson Maldonado',
+        score: 1,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/5.jpg'
+    }, {
+        name: 'Berg Bolton',
+        score: 5,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/women/2.jpg'
+    }, {
+        name: 'Mack Lott',
+        score: 3,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/6.jpg'
+    }, {
+        name: 'Rosanna Mcleod',
+        score: 4,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/7.jpg'
+    }, {
+        name: 'Rosalie Rice',
+        score: 1,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/8.jpg'
+    }, {
+        name: 'Virginia Buchanan',
+        score: 2,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/women/3.jpg'
+    }, {
+        name: 'Lorna Stein',
+        score: 4,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/9.jpg'
+    }, {
+        name: 'Rosalie Steele',
+        score: 3,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/women/4.jpg'
+    }, {
+        name: 'Wilcox Boyd',
+        score: 5,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/10.jpg'
+    }, {
+        name: 'Ollie Rice',
+        score: 5,
+        photoUrl: 'http://api.randomuser.me/portraits/thumb/men/11.jpg'
+    }]
 };
 
 const control = {
-    init: function() {
+    init: function () {
         sortView.init();
         sortView.render();
 
@@ -78,51 +76,52 @@ const control = {
 
         profileView.init();
     },
-    getAllNames: function() {
-        return model.allPersons.map(el=>el.name);
+    getAllNames: function () {
+        return model.allPersons.map(el => el.name);
     },
-    getAllScores: function() {
-        return model.allPersons.map(el=>el.score);
+    getAllScores: function () {
+        return model.allPersons.map(el => el.score);
     },
-    setCurrentPerson: function(index) {
+    setCurrentPerson: function (index) {
         model.currentPerson = model.allPersons[index];
         this.viewCurrentProfile();
     },
-    getCurrentPerson: function() {
+    getCurrentPerson: function () {
         return model.currentPerson;
     },
-    viewCurrentProfile: function() {
+    viewCurrentProfile: function () {
         profileView.render();
     },
-    setCurrentPersonScore: function(value) {
+    setCurrentPersonScore: function (value) {
         model.currentPerson.score = value;
         profileView.render();
         scoresView.render();
-        $('#score .triangle-up').css({'border-bottom': '10px solid #888'});
-    	$('#score .triangle-down').css({'border-top': '10px solid #888'});
-    	$('#name .triangle-down').css({'border-top': '10px solid #888'});
-    	$('#name .triangle-up').css({'border-bottom': '10px solid #888'});
+        $('#score .triangle-up').removeClass('triangle-up-active triangle-up-disappear');
+        $('#score .triangle-down').removeClass('triangle-down-active triangle-down-disappear');
+        $('#name .triangle-up').removeClass('triangle-up-active triangle-up-disappear');
+        $('#name .triangle-down').removeClass('triangle-down-active triangle-down-disappear');
     },
     sort(type, direction) {
-        if(direction === 'up'){
-            model.allPersons.sort( (a, b) => {
+        if (direction === 'up') {
+            model.allPersons.sort((a, b) => {
                 if (a[type] > b[type]) {
                     return 1;
-                  }
-                  if (a[type] < b[type]) {
+                }
+                if (a[type] < b[type]) {
                     return -1;
-                  }
-                  return 0;
+                }
+                return 0;
             });
-        } else if(direction === 'down'){
-            model.allPersons.sort( (a, b) => {
+        }
+        else if (direction === 'down') {
+            model.allPersons.sort((a, b) => {
                 if (a[type] < b[type]) {
                     return 1;
-                  }
-                  if (a[type] > b[type]) {
+                }
+                if (a[type] > b[type]) {
                     return -1;
-                  }
-                  return 0;
+                }
+                return 0;
             });
         }
         listView.render();
@@ -131,18 +130,18 @@ const control = {
 };
 
 const listView = {
-    init: function() {
+    init: function () {
         this.$container = $('.names');
         this.handleClicks();
     },
-    render: function() {
+    render: function () {
         let template = control.getAllNames().reduce((acc, cur, i) => {
             return acc += `<li>${cur}</li>`;
         }, '');
         this.$container.html(template);
     },
-    handleClicks: function() {
-        this.$container.on('click','li', function(e) {
+    handleClicks: function () {
+        this.$container.on('click', 'li', function (e) {
             let currentIndex = $(e.target).index();
             control.setCurrentPerson(currentIndex);
         });
@@ -150,12 +149,12 @@ const listView = {
 };
 
 const scoresView = {
-    init: function() {
+    init: function () {
         this.$container = $('.scores');
         this.$error = $('.wrapper').append($('<p>').addClass('error'));
         this.handleClicks();
     },
-    render: function() {
+    render: function () {
         let template = control.getAllScores().reduce((acc, cur) => {
             return acc += `
                 <li>
@@ -166,8 +165,8 @@ const scoresView = {
         }, '');
         this.$container.html(template);
     },
-    handleClicks: function() {
-        this.$container.on('click', 'li', function(e) {
+    handleClicks: function () {
+        this.$container.on('click', 'li', function (e) {
             let $currentLi = $(e.target);
             let $currentSpan = $currentLi.find('span');
             let $currentInput = $currentLi.find('input.score-input');
@@ -179,13 +178,14 @@ const scoresView = {
             $currentSpan.addClass('hidden');
             $currentInput.removeClass('hidden').focus();
         });
-        this.$container.on('focusout .score-input', function(e) {
+        this.$container.on('focusout .score-input', function (e) {
             let $error = $('.error');
             let newScore = $(e.target).val();
-            if (newScore.trim() != '' && typeof +newScore.value === 'number' && !Number.isNaN(+newScore)){
+            if (newScore.trim() != '' && typeof + newScore.value === 'number' && !Number.isNaN(+newScore)) {
                 $error.text('');
                 control.setCurrentPersonScore(+newScore);
-            } else {
+            }
+            else {
                 $error.text('Please imput the number!');
             }
         });
@@ -193,10 +193,10 @@ const scoresView = {
 };
 
 const profileView = {
-    init: function() {
+    init: function () {
         this.$container = $('.profile');
     },
-    render: function() {
+    render: function () {
         let currentPerson = control.getCurrentPerson();
         let template = `
             <img src="${currentPerson.photoUrl}">
@@ -208,11 +208,11 @@ const profileView = {
 };
 
 const sortView = {
-    init: function() {
+    init: function () {
         this.$container = $('.sort-controls');
         this.handleClicks();
     },
-    render: function() {
+    render: function () {
         let template = `
             <li id="name">
 	            <span>Name</span>
@@ -231,36 +231,47 @@ const sortView = {
         `;
         this.$container.html(template);
     },
-    handleClicks: function() {
-    	this.$container.on('click', function(e){
-    			let $clickedElem = $(e.target).closest('div[arrow]');
-    			let $sorting = $clickedElem.attr('arrow');
-    			let $type = $(e.target).closest('li').attr('id');
-    			if($sorting === 'up'){
-    				$clickedElem.css({'border-bottom': '10px solid #00BCD4'});
-    				if($type === 'name'){
-    					$('#score .triangle-up').css({'border-bottom': '10px solid #888'});
-    					$('#score .triangle-down').css({'border-top': '10px solid #888'});
-    					$('#name .triangle-down').css({'border-top': '10px solid #fff'});
-    				}else{
-    					$('#name .triangle-up').css({'border-bottom': '10px solid #888'});
-    					$('#name .triangle-down').css({'border-top': '10px solid #888'});
-    					$('#score .triangle-down').css({'border-top': '10px solid #fff'});
-    				}
-    			}else{
-    				$clickedElem.css({'border-top': '10px solid #00BCD4'});
-    				if($type === 'name'){
-    					$('#score .triangle-up').css({'border-bottom': '10px solid #888'});
-    					$('#score .triangle-down').css({'border-top': '10px solid #888'});
-    					$('#name .triangle-up').css({'border-bottom': '10px solid #fff'});
-    				}else{
-    					$('#name .triangle-up').css({'border-bottom': '10px solid #888'});
-    					$('#name .triangle-down').css({'border-top': '10px solid #888'});
-    					$('#score .triangle-up').css({'border-bottom': '10px solid #fff'});
-    				}
-    			}
-    			control.sort($type, $sorting);
-    		});
+    handleClicks: function () {
+        this.$container.on('click', function (e) {
+
+            let $clickedElem = $(e.target).closest('div[arrow]');
+            let $sorting = $clickedElem.attr('arrow');
+            let $type = $(e.target).closest('li').attr('id');
+            removeActiveArrows($clickedElem, $type, $sorting);
+            control.sort($type, $sorting);
+        });
+
+        function removeActiveArrows(clickedElem, type, sorting) {
+            if (sorting === 'up') {
+                clickedElem.removeClass('triangle-up-disappear');
+                clickedElem.addClass('triangle-up-active');
+                if (type === 'name') {
+
+                    $('#score .triangle-up').removeClass('triangle-up-active triangle-up-disappear');
+                    $('#score .triangle-down').removeClass('triangle-down-active triangle-down-disappear');
+                    $('#name .triangle-down').addClass('triangle-down-disappear');
+                }
+                else {
+                    $('#name .triangle-up').removeClass('triangle-up-active triangle-up-disappear');
+                    $('#name .triangle-down').removeClass('triangle-down-active triangle-down-disappear');
+                    $('#score .triangle-down').addClass('triangle-down-disappear');
+                }
+            }
+            else if (sorting === 'down') {
+                clickedElem.removeClass('triangle-down-disappear');
+                clickedElem.addClass('triangle-down-active');
+                if (type === 'name') {
+                    $('#score .triangle-up').removeClass('triangle-up-active triangle-up-disappear');
+                    $('#score .triangle-down').removeClass('triangle-down-active triangle-down-disappear');
+                    $('#name .triangle-up').addClass('triangle-up-disappear');
+                }
+                else {
+                    $('#name .triangle-up').removeClass('triangle-up-active triangle-up-disappear');
+                    $('#name .triangle-down').removeClass('triangle-down-active triangle-down-disappear');
+                    $('#score .triangle-up').addClass('triangle-up-disappear');
+                }
+            }
+        }
     }
 }
 

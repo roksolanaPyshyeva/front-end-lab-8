@@ -147,6 +147,15 @@ body {
   	grid-row: 2;
   	margin-top: 2px;
 }
-
-
-
+.triangle-up-active{
+	border-bottom: 10px solid #00BCD4;
+}
+.triangle-down-active{
+	border-top: 10px solid #00BCD4;
+}
+.triangle-up-disappear{
+	border-bottom: 10px solid #fff;
+}
+.triangle-down-disappear{
+	border-top: 10px solid #fff;
+}
