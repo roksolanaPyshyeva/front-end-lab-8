@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body ng-app="App" ng-controller="Ctrl">
+
+	<div ng-repeat="post in (currentPosts | filter:{title: search})">
+		<div class="container" >
+			<div class="post-image" style="background-image: url({{post.url}})" }>
+				<p ng-show="post.edit">Photo: <input ng-model="post.url" /></p>
+				<div class="title-container">
+					<div class="title">
+						<h2 ng-show="!post.edit">{{post.title}}</h2>
+						<p ng-show="post.edit">Title: <input ng-model="post.title" /></p>
+					</div>
+				</div>
+			</div>
+			<div class="post-categories">
+				<p ng-show="!post.edit" ng-repeat="category in post.categories">{{category}}</p>
+				<p ng-show="post.edit">Categories: <input ng-model="post.categories" /></p>
+			</div>
+			<div class="post-description">
+				<p ng-show="!post.edit">{{post.description}}</p>
+				<p ng-show="post.edit">Description: <textarea ng-model="post.description"></textarea></p>
+			</div>
+			<button class="edit-btn" ng-show="!post.edit" ng-click="post.edit = true">Edit</button>
+			<button class="save-btn" ng-show="post.edit" ng-click="editPost(post)">Save</button>
+			<p class="error" ng-show="post.editError">Fill all required fields</p>
+		</div>
+	</div>
+
+	<div class="sidebar-categories">
+		<p>Categories</p>
+		<ul ng-repeat="category in categories">
+			<li ng-click="filterPosts(category)">{{category}}</li>
+		</ul>
+		<p>Search by title</p>
+		<input type="text" placeholder="Blog title" ng-model="search" class="form-control">
+	</div>
+	<div class="add-block">
+		<button class="add-button" ng-show="!addActive" ng-click="addActive=true; newTitle=''; newCategories=''; newDescription=''">Add</button>
+		<div class="add-container" ng-show="addActive">
+			<div class="new-post-input"><p>Title</p><input type="text" placeholder="Title" ng-model="newTitle" class="form-control"></div>
+			<div class="new-post-input"><p>Categories</p><input type="text" placeholder="Categories" ng-model="newCategories" class="form-control"></div>
+			<div class="new-post-input description"><p>Description</p><textarea type="text" placeholder="Description" ng-model="newDescription" class="form-control"></textarea></div>
+			<div class="new-post-input"><p>Photo</p><input type="text" placeholder="Photo" ng-model="newPhoto" class="form-control"></div>
+		</div>
+		<button class="add-button" ng-show="addActive" ng-click="addPost(newTitle, newCategories, newDescription, newPhoto) ">Add</button>
+		<p class="error" ng-show="showError">Please fill required fields</p>
+	</div>
+
+
+
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script src="src/data.js"></script>
+	<script src="src/app.js"></script>
+	</body>
+
+</html>

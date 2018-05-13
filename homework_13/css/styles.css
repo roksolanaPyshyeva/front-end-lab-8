@@ -1,0 +1,123 @@
+.container {
+	background-color: #dbdbdb;
+	border-radius: 5px;
+	width: 60%;
+	margin: 2% auto;
+	padding:1%;
+}
+
+.post-image  {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 400px;
+}
+
+.title {
+	left: 0px;
+	top: 460px;
+	padding: 0.01% 0 0.01% 2%;
+	font-size: 20px;
+	text-transform: uppercase;
+	color: white;
+	background-color: rgba(110, 110, 110, 0.5);
+}
+
+.title-container{
+	padding-top: 315px;
+}
+.post-categories {
+	display: flex;
+	font-size: 1.3em;
+	color: rgb(14, 11, 185);
+}
+.post-categories p{
+	padding-left: 10px;
+}
+
+.sidebar-categories {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	border: 1px solid black;
+	border-radius: 2px;
+	width: 200px;
+	padding: 5px;
+}
+
+.sidebar-categories li {
+	text-decoration: underline;
+	color: blue;
+	cursor: pointer;
+}
+
+.add-block {
+	width: 60%;
+	margin: 2% auto;
+	background-color: #dbdbdb;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 1%;
+}
+
+.add-button {
+	width: 180px;
+	height: 40px;
+	margin: 10px;
+	background: rgb(105, 105, 105);
+	border: 2px solid rgb(34, 34, 34);
+}
+
+.new-post-input {
+	height: 40px;
+	display: flex;
+}
+
+.new-post-input p {
+	height: 40px;
+	width: 40%;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.new-post-input input {
+	width: 60%;
+	height: 35px;
+	padding-left: 10px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.new-post-input.description {
+	height: 110px;
+}
+
+.new-post-input.description p {
+	line-height: 60px;
+}
+
+.new-post-input.description textarea {
+	width: 60%;
+	height: 100px;
+	padding-left: 10px;
+}
+
+.error {
+	display: inline-block;
+	color: red;
+}
+
+.edit-btn {
+	color: blue;
+	margin-left: 500px;
+	cursor: pointer;
+	background-color: #dbdbdb;
+	border: 0;
+}
+.save-btn{
+	color: blue;
+	margin-left: 10px;
+	cursor: pointer;
+	background-color: #dbdbdb;
+	border: 0;
+}
