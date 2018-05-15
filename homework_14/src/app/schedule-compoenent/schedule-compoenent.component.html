@@ -1,0 +1,16 @@
+<div class="schedule">
+  <div class="header">
+    <div>Epam FE Lab #8</div>
+    <button (click)="clickAdd()" >Add</button>
+  </div>
+  <div class="table-header">
+    <div>#</div>
+    <div>Topic</div>
+    <div>Date</div>
+    <div>Lecturer</div>
+    <div>Actions</div>
+  </div>
+  <div *ngFor="let lecture of lectures">
+    <app-class-component [lecture] = "lecture"></app-class-component>
+  </div>
+</div>

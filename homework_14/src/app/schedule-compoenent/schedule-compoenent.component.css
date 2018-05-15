@@ -1,0 +1,38 @@
+.schedule{
+  width: 50%;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid black;
+}
+.header{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  border-bottom: 1px solid black;
+}
+.header div{
+  grid-column: 2;
+  grid-row: 1;
+  padding-left: 15px;
+  padding-top: 1px;
+}
+.header button{
+  grid-column: 3;
+  grid-row: 1;
+  width: 50px;
+  border: 1px solid black;
+  margin: 2px;
+  margin-left: 110px;
+  background-color: transparent;
+  outline: 0;
+}
+.table-header{
+  display: grid;
+  grid-template-columns: 0.2fr 1fr 1fr 1fr 1fr;
+  border-bottom: 1px solid black;
+}
+.table-header div{
+  border-right: 1px solid black;
+  text-align: center;
+}
+

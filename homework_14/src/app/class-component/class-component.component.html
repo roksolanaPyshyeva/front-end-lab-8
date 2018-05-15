@@ -1,0 +1,12 @@
+<div class="table-item" *ngIf="lecture">
+  <div> <span *ngIf="!edit" > {{lecture.id}}</span> <input *ngIf="edit" [(ngModel)]="lecture.id" placeholder="lecture id"></div>
+  <div><span *ngIf="!edit" >{{lecture.topic}}</span> <input *ngIf="edit" [(ngModel)]="lecture.topic" placeholder="lecture topic"></div>
+  <div><span *ngIf="!edit" >{{lecture.date}}</span> <input *ngIf="edit" [(ngModel)]="lecture.date" placeholder="lecture date"></div>
+  <div><span *ngIf="!edit" >{{lecture.lecturer}}</span> <input *ngIf="edit" [(ngModel)]="lecture.lecturer" placeholder="lecture lecturer"></div>
+  <div>
+    <button *ngIf="!edit" (click)="Edit(lecture)" >&#10000;</button>
+    <button *ngIf="!edit"  (click)="Delete()" >&#x2326;</button>
+    <button *ngIf="edit" (click)="Save(lecture)" >&#10003;</button>
+    <button *ngIf="edit" (click)="Cancel()" >&#10005;</button>
+  </div>
+</div>
